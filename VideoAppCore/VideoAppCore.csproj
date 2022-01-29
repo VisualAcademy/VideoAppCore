@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>aspnet-VideoAppCore-9D332839-EB8B-4866-A7D1-CD40CA9D2629</UserSecretsId>
   </PropertyGroup>
 
