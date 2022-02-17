@@ -1,7 +1,7 @@
 ﻿@page "/Videos/Create"
 
 @inject IVideoRepositoryAsync repository
-@inject NavigationManager navigationManager 
+@inject NavigationManager navigationManager
 
 <h3>Create</h3>
 
@@ -41,7 +41,7 @@
         //video.Created = DateTime.Now;
         video.CreatedBy = "Test";
         video.Modified = null;
-        video.ModifiedBy = null; 
+        video.ModifiedBy = null;
 
         // 저장
         await repository.AddVideoAsync(video);

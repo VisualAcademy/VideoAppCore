@@ -17,7 +17,7 @@ else
     <ul>
         @foreach (var video in videos)
         {
-        <li>@video.Id - @video.Title</li>
+            <li>@video.Id - @video.Title</li>
         }
     </ul>
 }
@@ -26,8 +26,8 @@ else
     List<Video> videos;
 
     protected override async Task OnInitializedAsync()
-    { 
+    {
         //videos = VideoDbContext.Videos.Take(1).ToList();
-        videos = await repository.GetVideosAsync();    
+        videos = await repository.GetVideosAsync();
     }
 }
