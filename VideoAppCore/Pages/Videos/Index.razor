@@ -1,7 +1,7 @@
 ﻿@page "/Videos"
 @page "/Videos/Index"
 
-@inject IVideoRepositoryAsync repository
+@inject IVideoRepositoryAsync _repository
 
 <h3>Videos List</h3>
 
@@ -51,6 +51,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        videos = await repository.GetVideosAsync();
+        videos = await _repository.GetVideosAsync();
     }
 }
