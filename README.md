@@ -6,6 +6,7 @@
 
 데브렉에서 서비스되고 있는 Blazor Server Part 1 강좌의 데모 소스 코드입니다.
 
+* http://www.devlec.com
 
 
 ## 데이터베이스 처리 기술 3가지 
