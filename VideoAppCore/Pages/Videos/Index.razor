@@ -51,7 +51,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(3000); // 3초 대기 
+        await Task.Delay(500); // 3초 대기 
         videos = await _repository.GetVideosAsync();
     }
 }
