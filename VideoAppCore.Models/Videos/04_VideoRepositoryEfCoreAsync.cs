@@ -23,10 +23,7 @@ namespace VideoAppCore.Models
         }
 
         // 출력
-        public async Task<List<Video>> GetVideosAsync()
-        {
-            return await _context.Videos.ToListAsync();
-        }
+        public async Task<List<Video>> GetVideosAsync() => await _context.Videos.ToListAsync();
 
         // 상세보기
         public async Task<Video> GetVideoByIdAsync(int id)
