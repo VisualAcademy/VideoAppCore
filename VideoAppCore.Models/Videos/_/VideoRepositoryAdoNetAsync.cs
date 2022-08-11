@@ -15,7 +15,7 @@ namespace VideoAppCore.Models
 
         public VideoRepositoryAdoNetAsync(string connectionString)
         {
-            this._connectionString = connectionString;
+            _connectionString = connectionString;
         }
 
         // 비동기 방식
