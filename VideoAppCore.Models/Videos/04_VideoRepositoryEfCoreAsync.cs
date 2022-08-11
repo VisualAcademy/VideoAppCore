@@ -14,7 +14,7 @@ namespace VideoAppCore.Models
 
         public VideoRepositoryEfCoreAsync(VideoDbContext context) => this._context = context;
 
-        // 입력
+        // 입력: Add
         public async Task<Video> AddVideoAsync(Video model)
         {
             _context.Add(model);
@@ -22,13 +22,13 @@ namespace VideoAppCore.Models
             return model;
         }
 
-        // 출력
+        // 출력: GetAll 
         public async Task<List<Video>> GetVideosAsync() => await _context.Videos.ToListAsync();
 
-        // 상세보기
+        // 상세보기: GetById
         public async Task<Video> GetVideoByIdAsync(int id) => await _context.Videos.Where(v => v.Id == id).SingleOrDefaultAsync();
 
-        // 수정
+        // 수정: Update, Edit
         public async Task<Video> UpdateVideoAsync(Video model)
         {
             _context.Entry(model).State = EntityState.Modified;
@@ -36,7 +36,7 @@ namespace VideoAppCore.Models
             return model; 
         }
 
-        // 삭제
+        // 삭제: Delete, Remove
         public async Task RemoveVideoAsync(int id)
         {
             var video = await _context.Videos.Where(v => v.Id == id).SingleOrDefaultAsync();
