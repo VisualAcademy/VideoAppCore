@@ -12,9 +12,9 @@ namespace VideoAppCore.Models
     /// </summary>
     public class VideoRepositoryDapperAsync : IVideoRepositoryAsync
     {
-        private readonly SqlConnection db;
+        private readonly SqlConnection _db;
 
-        public VideoRepositoryDapperAsync(string connectionString) => db = new SqlConnection(connectionString);
+        public VideoRepositoryDapperAsync(string connectionString) => _db = new SqlConnection(connectionString);
 
         // 입력: Add
         public async Task<Video> AddVideoAsync(Video model)
@@ -23,7 +23,7 @@ namespace VideoAppCore.Models
                 "Insert Into Videos(Title, Url, Name, Company, CreatedBy) Values(@Title, @Url, @Name, @Company, @CreatedBy);" +
                 "Select Cast(SCOPE_IDENTITY() As Int);";
 
-            int id = await db.ExecuteScalarAsync<int>(query, model);
+            int id = await _db.ExecuteScalarAsync<int>(query, model);
 
             model.Id = id;
 
@@ -35,7 +35,7 @@ namespace VideoAppCore.Models
         {
             const string query = "Select * From Videos;";
 
-            var videos = await db.QueryAsync<Video>(query);
+            var videos = await _db.QueryAsync<Video>(query);
 
             return videos.ToList();
         }
@@ -45,7 +45,7 @@ namespace VideoAppCore.Models
         {
             const string query = "Select * From Videos Where Id = @Id";
 
-            var video = await db.QueryFirstOrDefaultAsync<Video>(query, new { id }, commandType: CommandType.Text);
+            var video = await _db.QueryFirstOrDefaultAsync<Video>(query, new { id }, commandType: CommandType.Text);
 
             return video;
         }
@@ -63,7 +63,7 @@ namespace VideoAppCore.Models
                         ModifiedBy = @ModifiedBy 
                     Where Id = @Id";
 
-            await db.ExecuteAsync(query, model);
+            await _db.ExecuteAsync(query, model);
 
             return model;
         }
@@ -73,7 +73,7 @@ namespace VideoAppCore.Models
         {
             const string query = "Delete Videos Where Id = @Id";
 
-            await db.ExecuteAsync(query, new { id }, commandType: CommandType.Text);
+            await _db.ExecuteAsync(query, new { id }, commandType: CommandType.Text);
         }
     }
 }
