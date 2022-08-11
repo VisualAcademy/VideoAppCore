@@ -14,10 +14,7 @@ namespace VideoAppCore.Models
     {
         private readonly SqlConnection db;
 
-        public VideoRepositoryDapperAsync(string connectionString)
-        {
-            db = new SqlConnection(connectionString);
-        }
+        public VideoRepositoryDapperAsync(string connectionString) => db = new SqlConnection(connectionString);
 
         // 입력: Add
         public async Task<Video> AddVideoAsync(Video model)
