@@ -26,10 +26,7 @@ namespace VideoAppCore.Models
         public async Task<List<Video>> GetVideosAsync() => await _context.Videos.ToListAsync();
 
         // 상세보기
-        public async Task<Video> GetVideoByIdAsync(int id)
-        {
-            return await _context.Videos.Where(v => v.Id == id).SingleOrDefaultAsync(); 
-        }
+        public async Task<Video> GetVideoByIdAsync(int id) => await _context.Videos.Where(v => v.Id == id).SingleOrDefaultAsync();
 
         // 수정
         public async Task<Video> UpdateVideoAsync(Video model)
