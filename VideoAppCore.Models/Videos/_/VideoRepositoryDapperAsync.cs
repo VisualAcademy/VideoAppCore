@@ -19,7 +19,7 @@ namespace VideoAppCore.Models
             db = new SqlConnection(connectionString);
         }
 
-        // 입력
+        // 입력: Add
         public async Task<Video> AddVideoAsync(Video model)
         {
             const string query =
@@ -33,17 +33,7 @@ namespace VideoAppCore.Models
             return model;
         }
 
-        // 상세보기
-        public async Task<Video> GetVideoByIdAsync(int id)
-        {
-            const string query = "Select * From Videos Where Id = @Id";
-
-            var video = await db.QueryFirstOrDefaultAsync<Video>(query, new { id }, commandType: CommandType.Text);
-
-            return video;
-        }
-
-        // 출력
+        // 출력: GetAll
         public async Task<List<Video>> GetVideosAsync()
         {
             const string query = "Select * From Videos;";
@@ -53,15 +43,17 @@ namespace VideoAppCore.Models
             return videos.ToList();
         }
 
-        // 삭제
-        public async Task RemoveVideoAsync(int id)
+        // 상세보기: GetById
+        public async Task<Video> GetVideoByIdAsync(int id)
         {
-            const string query = "Delete Videos Where Id = @Id";
+            const string query = "Select * From Videos Where Id = @Id";
 
-            await db.ExecuteAsync(query, new { id }, commandType: CommandType.Text);
+            var video = await db.QueryFirstOrDefaultAsync<Video>(query, new { id }, commandType: CommandType.Text);
+
+            return video;
         }
 
-        // 수정
+        // 수정: Update, Edit
         public async Task<Video> UpdateVideoAsync(Video model)
         {
             const string query = @"
@@ -77,6 +69,14 @@ namespace VideoAppCore.Models
             await db.ExecuteAsync(query, model);
 
             return model;
+        }
+
+        // 삭제: Delete, Remove
+        public async Task RemoveVideoAsync(int id)
+        {
+            const string query = "Delete Videos Where Id = @Id";
+
+            await db.ExecuteAsync(query, new { id }, commandType: CommandType.Text);
         }
     }
 }
