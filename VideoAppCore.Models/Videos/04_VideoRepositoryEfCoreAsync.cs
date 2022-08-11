@@ -12,10 +12,7 @@ namespace VideoAppCore.Models
     {
         private readonly VideoDbContext _context;
 
-        public VideoRepositoryEfCoreAsync(VideoDbContext context)
-        {
-            this._context = context;
-        }
+        public VideoRepositoryEfCoreAsync(VideoDbContext context) => this._context = context;
 
         // 입력
         public async Task<Video> AddVideoAsync(Video model)
