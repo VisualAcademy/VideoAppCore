@@ -13,10 +13,7 @@ namespace VideoAppCore.Models
     {
         private readonly string _connectionString;
 
-        public VideoRepositoryAdoNetAsync(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
+        public VideoRepositoryAdoNetAsync(string connectionString) => _connectionString = connectionString;
 
         // 비동기 방식
         public async Task<Video> AddVideoAsync(Video model)
