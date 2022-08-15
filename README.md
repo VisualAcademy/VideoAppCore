@@ -11,6 +11,8 @@
 
 ## 데이터베이스 처리 기술 3가지 
 
+닷넷 기반의 데이터 처리 기술 3가지를 모두 사용합니다.
+
 * ADO.NET
 * Dapper
 * Entity Framework Core
