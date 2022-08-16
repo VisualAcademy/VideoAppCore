@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Threading.Tasks;
@@ -63,7 +62,7 @@ namespace VideoAppCore.Models.Tests
                 Assert.AreEqual("김태영", videos.Where(v => v.Id == 2).FirstOrDefault()?.Name);
             }
         }
-        
+
         //[TestMethod]
         //public async Task GetVideosAsyncMethodTestWithSqlite()
         //{
