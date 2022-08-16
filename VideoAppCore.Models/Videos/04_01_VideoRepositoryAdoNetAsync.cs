@@ -18,7 +18,7 @@ namespace VideoAppCore.Models
         // 비동기 방식
         public async Task<Video> AddVideoAsync(Video model)
         {
-            using (SqlConnection con = new SqlConnection(_connectionString))
+            using (var con = new SqlConnection(_connectionString))
             {
                 const string query =
                     "Insert Into Videos(Title, Url, Name, Company, CreatedBy) Values(@Title, @Url, @Name, @Company, @CreatedBy);" +
