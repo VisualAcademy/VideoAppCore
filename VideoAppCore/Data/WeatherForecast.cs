@@ -1,5 +1,3 @@
-using System;
-
 namespace VideoAppCore.Data
 {
     public class WeatherForecast
